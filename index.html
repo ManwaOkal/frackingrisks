@@ -41,6 +41,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -52,17 +53,28 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-weight: 400;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 48px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         @media (max-width: 768px) {
             .container {
                 padding: 0 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
             }
         }
 
@@ -91,12 +103,15 @@
             top: 3px;
             left: 0;
             right: 0;
+            width: 100%;
+            max-width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
             padding: 0;
             box-shadow: 0 1px 3px var(--shadow);
+            box-sizing: border-box;
         }
 
         .nav-links a.active {
@@ -193,6 +208,13 @@
                 border-bottom: none;
             }
 
+            header {
+                background-attachment: scroll;
+                min-height: 500px;
+                padding: 120px 24px 100px;
+            }
+        }
+
         /* Header */
         header {
             background-image: url('fracking.jpg');
@@ -210,6 +232,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         @media (max-width: 768px) {
@@ -363,6 +388,10 @@
             scroll-margin-top: 100px;
             position: relative;
             padding: 0 16px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         @media (max-width: 768px) {
@@ -1065,6 +1094,16 @@
         @media (max-width: 768px) {
             .action-section {
                 padding: 60px 32px;
+            }
+
+            .action-section h2 {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+
+            .action-section .section-number {
+                margin-right: 0 !important;
+                margin-bottom: 8px !important;
             }
         }
 
