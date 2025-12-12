@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fracking Near Home: What New Homeowners Need to Know</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3d2817;
+            --secondary: #5c3d2e;
+            --accent: #8b5a3c;
+            --accent-light: #a67c52;
+            --accent-glow: rgba(139, 90, 60, 0.1);
+            --brown-dark: #2c1810;
+            --brown-medium: #6b4423;
+            --brown-light: #d4a574;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #2c1810;
+            --text-light: #6b4423;
+            --bg: #faf8f5;
+            --bg-light: #f5f1eb;
+            --bg-gradient: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+            --white: #ffffff;
+            --shadow: rgba(44, 24, 16, 0.06);
+            --shadow-md: rgba(44, 24, 16, 0.1);
+            --shadow-lg: rgba(44, 24, 16, 0.15);
+            --shadow-xl: rgba(44, 24, 16, 0.2);
+            --border: rgba(44, 24, 16, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.75;
+            color: var(--text);
+            background: var(--bg);
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1000px;
+                padding: 0 64px;
+            }
+        }
+
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brown-medium), var(--accent));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 3px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        .nav-links a.active {
+            color: var(--brown-medium);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--brown-medium);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+        }
+
+            .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--brown-medium);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--brown-dark);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                padding: 16px 32px;
+                border-top: 1px solid var(--border);
+                box-shadow: 0 4px 12px var(--shadow-md);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            header {
+                background-attachment: scroll;
+                min-height: 500px;
+                padding: 120px 24px 100px;
+            }
+        }
+
+        /* Header */
+        header {
+            background-image: url('fracking.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 32px 140px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(61, 40, 23, 0.85) 0%, rgba(44, 24, 16, 0.75) 100%);
+            z-index: 0;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 90, 60, 0.2) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        /* Smoke Animation */
+        .smoke {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .smoke-particle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: smokeFloat 20s infinite ease-in-out;
+            opacity: 0.3;
+        }
+
+        .smoke-particle:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .smoke-particle:nth-child(2) {
+            left: 30%;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .smoke-particle:nth-child(3) {
+            left: 50%;
+            animation-delay: 10s;
+            animation-duration: 28s;
+        }
+
+        .smoke-particle:nth-child(4) {
+            left: 70%;
+            animation-delay: 15s;
+            animation-duration: 32s;
+        }
+
+        .smoke-particle:nth-child(5) {
+            left: 90%;
+            animation-delay: 8s;
+            animation-duration: 27s;
+        }
+
+        @keyframes smokeFloat {
+            0% {
+                transform: translateY(100%) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-20%) translateX(50px) scale(1.2);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100%) translateX(-30px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+
+        header .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        header h1 {
+            font-size: clamp(2.75rem, 7vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 28px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            animation: fadeInDown 0.6s ease-out;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+        }
+
+        header .subtitle {
+            font-size: clamp(1.375rem, 3.5vw, 1.75rem);
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            animation: fadeInUp 0.6s ease-out 0.15s both;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: #f5f1eb;
+        }
+
+        /* Section Styles */
+        section {
+            margin: 100px 0;
+            scroll-margin-top: 100px;
+            position: relative;
+            padding: 0 16px;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 0 8px;
+            }
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--brown-medium);
+            border-radius: 50%;
+        }
+
+        /* Section Numbers */
+        .section-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--brown-medium);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            background: var(--brown-medium);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 16px var(--shadow-lg);
+            z-index: 998;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .back-to-top.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 24px var(--shadow-xl);
+        }
+
+
+        .section-header {
+            margin-bottom: 56px;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.25rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--brown-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--brown-medium), transparent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+        }
+
+        /* Hero Intro Section */
+        .hero-intro {
+            text-align: center;
+            padding: 48px 40px;
+            background: linear-gradient(135deg, rgba(49, 130, 206, 0.05) 0%, rgba(45, 90, 135, 0.05) 100%);
+            border-radius: 24px;
+            margin: 40px 0 50px 0;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: var(--white);
+            padding: 48px 56px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px var(--shadow-md);
+            margin-bottom: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 40px 32px;
+                max-width: 100%;
+            }
+
+            .two-column {
+                max-width: 100%;
+            }
+
+            .action-section {
+                max-width: 100%;
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--brown-medium), var(--brown-light));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 8px 24px var(--shadow-lg);
+            border-color: rgba(139, 90, 60, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .content-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .content-card h3 {
+            font-size: clamp(1.625rem, 3.5vw, 2rem);
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .content-card p {
+            font-size: 1.125rem;
+            color: var(--text);
+            margin-bottom: 28px;
+            line-height: 1.85;
+            font-weight: 400;
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-card strong {
+            color: var(--brown-dark);
+            font-weight: 600;
+        }
+
+        /* Content Flow - Article Style */
+        .content-flow {
+            max-width: 88%;
+            margin: 0 auto 80px;
+            line-height: 1.9;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .content-flow {
+                max-width: 100%;
+                margin-bottom: 56px;
+            }
+        }
+
+        .content-flow p {
+            font-size: 1.125rem;
+            color: var(--text);
+            margin-bottom: 24px;
+            line-height: 1.9;
+        }
+
+        .content-flow p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Section Content Cards */
+        .section-content-card {
+            background: var(--white);
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px var(--shadow-md);
+            border: 1px solid var(--border);
+            margin-bottom: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .section-content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brown-medium), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .section-content-card:hover {
+            box-shadow: 0 12px 32px var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: rgba(139, 90, 60, 0.2);
+        }
+
+        .section-content-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .section-content-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .lead-text {
+            font-size: 1.3125rem;
+            line-height: 1.75;
+            margin: 0;
+            color: var(--brown-dark);
+            padding: 40px 40px 32px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, rgba(250, 248, 245, 0.5) 100%);
+            border-bottom: 1px solid var(--border);
+            font-weight: 500;
+            letter-spacing: -0.015em;
+        }
+
+        .content-body {
+            padding: 36px 40px;
+        }
+
+        .content-body p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .content-body p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .content-body p strong {
+            color: var(--brown-dark);
+            font-weight: 600;
+        }
+
+        .subheading {
+            font-size: 0.875rem;
+            margin: 0 0 24px 0;
+            color: var(--brown-medium);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .emphasis-text {
+            font-size: 1.0625rem;
+            font-style: italic;
+            color: var(--brown-medium);
+            margin: 0;
+            padding: 28px 40px;
+            background: linear-gradient(135deg, rgba(139, 90, 60, 0.08) 0%, rgba(139, 90, 60, 0.03) 100%);
+            border-top: 1px solid rgba(139, 90, 60, 0.15);
+            line-height: 1.75;
+        }
+
+        .note-text {
+            font-style: italic;
+            color: var(--text-light);
+            margin: 0;
+            padding: 28px 40px;
+            background: linear-gradient(135deg, rgba(139, 90, 60, 0.05) 0%, rgba(139, 90, 60, 0.02) 100%);
+            border-top: 1px solid var(--border);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .lead-text {
+                padding: 32px 28px 24px;
+                font-size: 1.1875rem;
+            }
+
+            .content-body {
+                padding: 28px;
+            }
+
+            .emphasis-text,
+            .note-text {
+                padding: 24px 28px;
+            }
+        }
+
+        /* Bullet Lists */
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            padding: 18px 0 18px 36px;
+            position: relative;
+            font-size: 1.0625rem;
+            color: var(--text);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .bullet-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .bullet-list li:first-child {
+            padding-top: 0;
+        }
+
+        .bullet-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--brown-medium);
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1;
+            transition: all 0.3s ease;
+            top: 18px;
+        }
+
+        .bullet-list li:first-child::before {
+            top: 0;
+        }
+
+        .bullet-list li:hover {
+            padding-left: 40px;
+            color: var(--brown-dark);
+        }
+
+        .bullet-list li:hover::before {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+            margin: 48px 0;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                max-width: 100%;
+                gap: 40px;
+            }
+        }
+
+        /* Impacts Grid */
+        .impacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+            margin: 64px 0;
+            max-width: 92%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .impacts-grid {
+                max-width: 100%;
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+        }
+
+        .impact-item {
+            background: var(--white);
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px var(--shadow-md);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .impact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brown-medium), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .impact-item:hover {
+            box-shadow: 0 12px 32px var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: rgba(139, 90, 60, 0.2);
+        }
+
+        .impact-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .impact-header {
+            padding: 36px 36px 28px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, rgba(250, 248, 245, 0.5) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .impact-item h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin: 0;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .impact-item h4 .emoji {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .impact-content {
+            padding: 32px 36px 36px;
+        }
+
+        .impact-detail {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .impact-detail:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .impact-detail strong {
+            display: block;
+            color: var(--brown-medium);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 14px;
+        }
+
+        .impact-detail p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .impact-item-full {
+            max-width: 88%;
+            margin: 56px auto 0;
+            background: var(--white);
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px var(--shadow-md);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .impact-item-full::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brown-medium), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .impact-item-full:hover {
+            box-shadow: 0 12px 32px var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: rgba(139, 90, 60, 0.2);
+        }
+
+        .impact-item-full:hover::before {
+            transform: scaleX(1);
+        }
+
+        @media (max-width: 768px) {
+            .impact-item-full {
+                max-width: 100%;
+            }
+
+            .impact-header {
+                padding: 28px 28px 24px;
+            }
+
+            .impact-content {
+                padding: 28px;
+            }
+
+            .impact-item h4 {
+                font-size: 1.375rem;
+            }
+
+            .impact-item h4 .emoji {
+                font-size: 1.75rem;
+            }
+        }
+
+        .impact-item-full .impact-header {
+            padding: 36px 36px 28px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, rgba(250, 248, 245, 0.5) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .impact-item-full h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin: 0;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .impact-item-full h4 .emoji {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .impact-item-full .impact-content {
+            padding: 32px 36px 36px;
+        }
+
+        .impact-item-full .impact-detail {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .impact-item-full .impact-detail:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .impact-item-full .impact-detail strong {
+            display: block;
+            color: var(--brown-medium);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 14px;
+        }
+
+        .impact-item-full .impact-detail p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .column h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 24px;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+        }
+
+        .column p {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .column p:last-child {
+            margin-bottom: 0;
+        }
+
+        .column strong {
+            color: var(--brown-dark);
+            font-weight: 600;
+        }
+
+        /* Action Section */
+        .action-section {
+            background: linear-gradient(135deg, var(--brown-medium) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 80px 64px;
+            border-radius: 0;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .action-section {
+                padding: 60px 32px;
+            }
+        }
+
+        .action-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .action-section h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 600;
+            margin-bottom: 48px;
+            text-align: center;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .action-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .action-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .action-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .action-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .action-item li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            opacity: 0.95;
+        }
+
+        .action-item li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+
+        /* FAQ Accordion Section */
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 32px 0;
+        }
+
+        .faq-item {
+            background: transparent;
+            border-radius: 0;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-item:hover {
+            padding-left: 8px;
+        }
+
+        .faq-header {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-header:hover {
+            background-color: rgba(49, 130, 206, 0.05);
+        }
+
+        .faq-item.active .faq-header {
+            background-color: rgba(49, 130, 206, 0.08);
+        }
+
+        .faq-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0;
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brown-medium);
+            font-size: 1.2rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px;
+        }
+
+        .faq-content p {
+            color: var(--text);
+            line-height: 1.7;
+            padding: 0 24px 24px 24px;
+            margin: 0;
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 48px 0;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                max-width: 100%;
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        .resource-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-left: 4px solid var(--brown-medium);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .resource-card:hover {
+            background: rgba(139, 90, 60, 0.05);
+            border-left-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .resource-card h4 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+        }
+
+        .resource-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .resource-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .resource-card li {
+            padding: 12px 0;
+            color: var(--text);
+            line-height: 1.7;
+            border-bottom: 1px solid rgba(139, 90, 60, 0.1);
+            padding-left: 0;
+        }
+
+        .resource-card li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-card a {
+            color: var(--brown-medium);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            display: inline;
+        }
+
+        .resource-card a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--brown-medium);
+        }
+
+        .resource-link-item {
+            padding-left: 0 !important;
+        }
+
+        .resource-link-item::before {
+            display: none;
+        }
+
+        .resource-bullet-item {
+            padding-left: 36px !important;
+            position: relative;
+            padding-right: 0;
+        }
+
+        .resource-bullet-item::before {
+            content: '→';
+            position: absolute;
+            left: 4px;
+            top: 12px;
+            color: var(--brown-medium);
+            font-weight: 600;
+            font-size: 1rem;
+            width: 20px;
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--warning);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 48px 0;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .warning-box h3 {
+            color: #744210;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .warning-box p {
+            color: #744210;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brown-dark);
+            color: var(--white);
+            padding: 64px 32px;
+            text-align: center;
+            margin-top: 120px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        footer p:first-child {
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                margin: 40px 0;
+            }
+
+            .content-card {
+                padding: 24px;
+            }
+
+            .action-section {
+                padding: 40px 24px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Enhanced animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+        }
+
+        .slide-left {
+            transform: translateX(-50px);
+        }
+
+        .slide-left.animated {
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            transform: translateX(50px);
+        }
+
+        .slide-right.animated {
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            transform: scale(0.95);
+        }
+
+        .scale-in.animated {
+            transform: scale(1);
+        }
+
+        /* Smooth scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-logo">Fracking Near Home</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#impacts">Benefits & Impacts</a></li>
+                <li><a href="#health">Health</a></li>
+                <li><a href="#action">Take Action</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="smoke">
+            <div class="smoke-particle"></div>
+            <div class="smoke-particle"></div>
+            <div class="smoke-particle"></div>
+            <div class="smoke-particle"></div>
+            <div class="smoke-particle"></div>
+        </div>
+        <div class="container">
+            <h1>Fracking Near Home</h1>
+            <p class="subtitle">What New Homeowners Need to Know</p>
+        </div>
+    </header>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" aria-label="Back to top">↑</button>
+
+        <!-- Know What You're Moving Into -->
+        <section id="overview" class="fade-in">
+            <div class="section-divider"></div>
+            <div class="section-header animate-on-scroll">
+                <h2><span class="section-number">1</span>Know What You're Moving Into</h2>
+            </div>
+            <div class="content-flow animate-on-scroll">
+                <div class="section-content-card">
+                    <p class="lead-text">Hydraulic fracturing (fracking) uses high-pressure fluid to break apart deep rock layers and release natural gas or oil. Wells can be drilled within a mile of residential areas.</p>
+                    <div class="content-body">
+                        <p class="subheading">What actually happens during fracking:</p>
+                        <ul class="bullet-list">
+                            <li>Millions of gallons of water mixed with chemicals are injected underground</li>
+                            <li>Rock fractures release trapped gas or oil</li>
+                            <li>Wastewater returns to the surface and requires disposal</li>
+                            <li>Operations can continue for years at a single site</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Energy Benefits and Potential Impacts -->
+        <section id="impacts" class="fade-in">
+            <div class="section-divider"></div>
+            <div class="section-header animate-on-scroll">
+                <h2><span class="section-number">2</span>Energy Benefits Come with Tradeoffs</h2>
+            </div>
+            <div class="content-flow animate-on-scroll">
+                <div class="section-content-card">
+                    <div class="content-body">
+                        <p>Fracking brings real economic advantages to local communities: <strong>job creation, increased tax revenue, and lower energy costs</strong>. Many of your neighbors may work in the industry or benefit from it financially.</p>
+                        <p>These benefits exist alongside environmental considerations. Industrial activity, truck traffic, and potential contamination risks can affect property values and quality of life in residential areas.</p>
+                    </div>
+                    <p class="emphasis-text">Understanding both aspects helps you make decisions that align with your priorities as a homeowner.</p>
+                </div>
+            </div>
+            <div class="section-header" style="margin-top: 64px;">
+                <h2 style="font-size: clamp(1.875rem, 4vw, 2.25rem);">Potential Impacts on Daily Life</h2>
+            </div>
+            <div class="impacts-grid">
+                <div class="impact-item animate-on-scroll slide-left">
+                    <div class="impact-header">
+                        <h4>
+                            <span>Water Quality</span>
+                        </h4>
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-detail">
+                            <strong>What could happen</strong>
+                            <p>Chemical additives and wastewater can contaminate groundwater through spills or well-casing failures.</p>
+                        </div>
+                        <div class="impact-detail">
+                            <strong>Who is more vulnerable</strong>
+                            <p>Private wells face higher risk than municipal water systems with treatment facilities.</p>
+                        </div>
+                        <div class="impact-detail">
+                            <strong>What makes detection difficult</strong>
+                            <p>Contamination may not be immediately visible or detectable without testing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-item animate-on-scroll slide-right">
+                    <div class="impact-header">
+                        <h4>
+                            <span>Air Quality</span>
+                        </h4>
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-detail">
+                            <strong>What could happen</strong>
+                            <p>Diesel emissions from trucks and drilling equipment, plus methane and volatile organic compounds released during operations.</p>
+                        </div>
+                        <div class="impact-detail">
+                            <strong>Who is more vulnerable</strong>
+                            <p>Children and those with asthma face higher risk of respiratory effects.</p>
+                        </div>
+                        <div class="impact-detail">
+                            <strong>What makes detection difficult</strong>
+                            <p>Air quality changes may be gradual and require monitoring equipment to detect.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-item animate-on-scroll scale-in">
+                    <div class="impact-header">
+                        <h4>
+                            <span>Property</span>
+                        </h4>
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-detail">
+                            <strong>What could happen</strong>
+                            <p>Proximity to active wells may affect home resale value. Noise and light pollution from 24-hour operations, plus road damage from heavy truck traffic.</p>
+                        </div>
+                        <div class="impact-detail">
+                            <strong>What makes detection difficult</strong>
+                            <p>Property value impacts may not be apparent until you try to sell, and effects vary significantly by location and distance from operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protect Your Family's Health -->
+        <section id="health" class="fade-in">
+            <div class="section-divider"></div>
+            <div class="section-header">
+                <h2><span class="section-number">3</span>Protect Your Family's Health</h2>
+            </div>
+            <div class="content-flow">
+                <div class="section-content-card">
+                    <div class="content-body">
+                        <p class="subheading">Health risks linked to fracking operations include:</p>
+                        <ul class="bullet-list">
+                            <li>Respiratory issues from air pollutants</li>
+                            <li>Skin and eye irritation from chemical exposure</li>
+                            <li>Potential impacts on pregnancy and child development</li>
+                            <li>Mental health effects from noise and community stress</li>
+                        </ul>
+                        <p style="margin-top: 24px;">If you're raising children or planning to start a family, these risks deserve your attention. Young children and pregnant individuals face higher vulnerability to environmental exposures.</p>
+                    </div>
+                    <p class="note-text">Research on health impacts continues to evolve, and individual outcomes vary based on many factors including proximity, duration of exposure, and personal health status.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Action -->
+        <section id="action" class="action-section fade-in">
+            <div class="section-divider" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);"></div>
+            <h2 style="display: flex; align-items: center; justify-content: center; gap: 16px;"><span class="section-number" style="background: rgba(255,255,255,0.2);">4</span>Take Action: What You Can Do</h2>
+            <div class="action-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="action-item">
+                    <h3>A. Immediate Personal Actions</h3>
+                    <ul>
+                        <li>Get a baseline water quality test before any nearby drilling begins</li>
+                        <li>Test again if operations start near your home</li>
+                        <li>Keep records of all test results</li>
+                    </ul>
+                </div>
+                <div class="action-item">
+                    <h3>B. Staying Informed</h3>
+                    <ul>
+                        <li>Attend local town hall meetings about drilling permits</li>
+                        <li>Join neighborhood groups focused on environmental monitoring</li>
+                        <li>Follow state environmental agency updates for your county</li>
+                    </ul>
+                </div>
+                <div class="action-item">
+                    <h3>C. Civic & Legal Options</h3>
+                    <ul>
+                        <li>Understand property rights and mineral rights in your area</li>
+                        <li>Learn about disclosure requirements for nearby drilling</li>
+                        <li>Research your state's regulations on setback distances</li>
+                        <li>Contact local representatives about environmental concerns</li>
+                        <li>Support comprehensive pre-drilling water testing requirements</li>
+                        <li>Push for transparent chemical disclosure policies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Questions -->
+        <section id="faq" class="fade-in">
+            <div class="section-divider"></div>
+            <div class="section-header">
+                <h2><span class="section-number">5</span>Common Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h4>Can fracking contaminate my drinking water?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Yes, contamination can occur through surface spills, wastewater disposal, or compromised well casings. Private wells face higher risk than municipal systems with treatment facilities.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h4>How do I find out about drilling near my home?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Check your state's oil and gas commission website for active permits and well locations. Most states maintain public databases of drilling activity.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h4>Will fracking affect my property value?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Studies show mixed results. Proximity to active wells can decrease property values, while economic benefits in the broader region may increase them. Effects vary by location and distance.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h4>What chemicals are used in fracking?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Hundreds of chemicals may be used, including acids, biocides, and friction reducers. Some states require disclosure, others do not. Specific mixtures are often considered trade secrets.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h4>Is there fracking near me?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Use your state's online mapping tools to locate active and permitted wells. Enter your address to see operations within a specific radius of your home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="fade-in">
+            <div class="section-divider"></div>
+            <div class="section-header">
+                <h2><span class="section-number">6</span>Resources for Homeowners</h2>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>Find Your State's Environmental Agencies</h4>
+                    <p style="margin-bottom: 16px; color: var(--text-light); font-size: 0.95rem;">These national directories help you locate state-specific resources for water quality, air quality, and drilling regulations.</p>
+                    <ul>
+                        <li class="resource-link-item"><a href="https://www.epa.gov/aboutepa/health-and-environmental-agencies-us-states-and-territories" target="_blank" rel="noopener noreferrer">EPA State & Tribal Environmental Agencies Directory</a> — Links to environmental, health, and natural-resource agencies in every U.S. state and territory</li>
+                        <li class="resource-link-item"><a href="https://www.envcap.org/srl/" target="_blank" rel="noopener noreferrer">State Resource Locator Gateway</a> — Generate customized lists of environmental contacts, regulations, permits, and state office information for your state</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Air Quality Monitoring</h4>
+                    <p style="margin-bottom: 16px; color: var(--text-light); font-size: 0.95rem;">Find air quality offices and monitoring contacts in your area.</p>
+                    <ul>
+                        <li class="resource-link-item"><a href="https://www.airnow.gov/partners/state-and-local-partners" target="_blank" rel="noopener noreferrer">AirNow State & Local Air Quality Partners</a> — Directory of environmental health agencies and air quality offices by state</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4>Next Steps: Using These Resources</h4>
+                    <p style="margin-bottom: 16px; color: var(--text-light); font-size: 0.95rem;">Once you find your state agency website, you can access:</p>
+                    <ul>
+                        <li class="resource-bullet-item">Private well testing programs and requirements</li>
+                        <li class="resource-bullet-item">Industrial permits and drilling activity databases</li>
+                        <li class="resource-bullet-item">Public hearing schedules and meeting information</li>
+                        <li class="resource-bullet-item">Environmental reporting requirements</li>
+                        <li class="resource-bullet-item">Contact information for your county health department</li>
+                        <li class="resource-bullet-item">Local environmental organizations in your area</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <div class="warning-box fade-in">
+            <p style="margin: 0 0 12px 0;"><strong>No Individual Predictions:</strong> This information cannot predict individual outcomes. Risk levels vary based on many factors including location, proximity, duration of exposure, and personal circumstances.</p>
+            <p style="margin: 0; font-style: italic;">For specific health concerns, consult with medical professionals. For property questions, speak with real estate and legal experts.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="copyright-year"></span> Risk Communication Project | Cornell University COMM 4860</p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Team: Carey Okal, Emma Acri, Gbolade Olusanya, and Jaida Anekwe</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: '0px 0px 100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate elements on scroll with faster timing
+        document.querySelectorAll('.fade-in').forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = `opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s`;
+            observer.observe(element);
+        });
+
+        // Enhanced scroll animations with better timing
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px 100px 0px' });
+
+        document.querySelectorAll('section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Animate on scroll for enhanced elements
+        const animateObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            animateObserver.observe(element);
+        });
+
+        // Reading Progress Bar
+        const readingProgress = document.querySelector('.reading-progress');
+        const updateProgress = () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            readingProgress.style.width = progress + '%';
+        };
+        window.addEventListener('scroll', updateProgress);
+        window.addEventListener('resize', updateProgress);
+
+        // Active Section Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        const highlightActiveSection = () => {
+            const scrollPos = window.scrollY + 150;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', highlightActiveSection);
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        const toggleBackToTop = () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        };
+        
+        window.addEventListener('scroll', toggleBackToTop);
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+
+        // Add hover effects to cards
+        document.querySelectorAll('.content-card, .faq-item, .resource-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Generate copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinksMenu = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinksMenu.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const offsetTop = target.offsetTop - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const header = item.querySelector('.faq-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                // Toggle clicked item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
