@@ -193,27 +193,13 @@
                 border-bottom: none;
             }
 
-            header {
-                background-attachment: scroll;
-                background-size: cover;
-                min-height: 400px;
-                padding: 120px 24px 100px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                min-height: 350px;
-                padding: 100px 20px 80px;
-            }
-        }
-
         /* Header */
         header {
             background-image: url('fracking.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            background-repeat: no-repeat;
             color: var(--white);
             padding: 160px 32px 140px;
             text-align: center;
@@ -224,6 +210,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                background-image: url('fracking.jpg');
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                min-height: 400px;
+                padding: 120px 24px 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                background-image: url('fracking.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                min-height: 350px;
+                padding: 100px 20px 80px;
+            }
         }
 
         header::before {
@@ -384,13 +393,12 @@
 
         /* Section Numbers */
         .section-number {
-            display: inline-block;
+            display: flex;
             width: 40px;
             height: 40px;
             background: var(--brown-medium);
             color: white;
             border-radius: 50%;
-            display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
@@ -453,19 +461,20 @@
             letter-spacing: -0.025em;
             line-height: 1.2;
             position: relative;
-            display: inline-flex;
+            display: flex;
             align-items: center;
+            justify-content: center;
             flex-direction: row;
         }
 
         @media (max-width: 768px) {
             .section-header h2 {
-                flex-direction: column;
+                flex-direction: column !important;
                 gap: 12px;
             }
 
-            .section-number {
-                margin-right: 0;
+            .section-header .section-number {
+                margin-right: 0 !important;
                 margin-bottom: 8px;
             }
         }
