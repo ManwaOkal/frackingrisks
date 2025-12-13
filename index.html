@@ -1513,7 +1513,8 @@
         }
 
         .fade-in {
-            animation: fadeInUp 0.6s ease-out;
+            /* Animation disabled */
+            opacity: 1;
         }
 
         /* Enhanced animations */
@@ -1551,8 +1552,8 @@
         }
 
         .animate-on-scroll {
-            opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Animation disabled */
+            opacity: 1;
         }
 
         .animate-on-scroll.animated {
@@ -1560,39 +1561,41 @@
         }
 
         .slide-left {
-            transform: translateX(-50px);
+            /* Animation disabled */
+            transform: none;
         }
 
         .slide-left.animated {
-            transform: translateX(0);
+            transform: none;
         }
 
         .slide-right {
-            transform: translateX(50px);
+            /* Animation disabled */
+            transform: none;
         }
 
         .slide-right.animated {
-            transform: translateX(0);
+            transform: none;
         }
 
         .scale-in {
-            transform: scale(0.95);
+            /* Animation disabled */
+            transform: none;
         }
 
         .scale-in.animated {
-            transform: scale(1);
+            transform: none;
         }
 
-        /* Smooth scroll reveal */
+        /* Smooth scroll reveal - disabled */
         .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: none;
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
     </style>
 </head>
@@ -1912,54 +1915,22 @@
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.05,
-            rootMargin: '0px 0px 100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Animate elements on scroll with faster timing
-        document.querySelectorAll('.fade-in').forEach((element, index) => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = `opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s`;
-            observer.observe(element);
+        // Scroll animations disabled
+        // Ensure all elements are visible by default
+        document.querySelectorAll('.fade-in').forEach((element) => {
+            element.style.opacity = '1';
+            element.style.transform = 'none';
         });
-
-        // Enhanced scroll animations with better timing
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.05, rootMargin: '0px 0px 100px 0px' });
-
-        document.querySelectorAll('section').forEach(section => {
-            sectionObserver.observe(section);
-        });
-
-        // Animate on scroll for enhanced elements
-        const animateObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
         document.querySelectorAll('.animate-on-scroll').forEach(element => {
-            animateObserver.observe(element);
+            element.classList.add('animated');
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '1';
+            section.style.transform = 'none';
         });
 
         // Reading Progress Bar
